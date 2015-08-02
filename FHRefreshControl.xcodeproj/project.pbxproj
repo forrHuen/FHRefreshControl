@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0813C3A21B6E970B0055C273 /* FHRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0813C3971B6E970B0055C273 /* FHRefreshControl.m */; };
+		0813C3A31B6E970B0055C273 /* FHRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0813C39A1B6E970B0055C273 /* FHRefreshBaseView.m */; };
+		0813C3A41B6E970B0055C273 /* FHRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0813C39C1B6E970B0055C273 /* FHRefreshFooterView.m */; };
+		0813C3A51B6E970B0055C273 /* FHRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0813C39E1B6E970B0055C273 /* FHRefreshHeaderView.m */; };
+		0813C3A61B6E970B0055C273 /* UIScrollView+FHRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 0813C3A11B6E970B0055C273 /* UIScrollView+FHRefresh.m */; };
 		08C647791B5A16A30080A6E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08C647781B5A16A30080A6E1 /* main.m */; };
 		08C6477C1B5A16A30080A6E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08C6477B1B5A16A30080A6E1 /* AppDelegate.m */; };
 		08C6477F1B5A16A30080A6E1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08C6477E1B5A16A30080A6E1 /* ViewController.m */; };
@@ -27,6 +32,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0813C3961B6E970B0055C273 /* FHRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHRefreshControl.h; sourceTree = "<group>"; };
+		0813C3971B6E970B0055C273 /* FHRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHRefreshControl.m; sourceTree = "<group>"; };
+		0813C3991B6E970B0055C273 /* FHRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHRefreshBaseView.h; sourceTree = "<group>"; };
+		0813C39A1B6E970B0055C273 /* FHRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHRefreshBaseView.m; sourceTree = "<group>"; };
+		0813C39B1B6E970B0055C273 /* FHRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHRefreshFooterView.h; sourceTree = "<group>"; };
+		0813C39C1B6E970B0055C273 /* FHRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHRefreshFooterView.m; sourceTree = "<group>"; };
+		0813C39D1B6E970B0055C273 /* FHRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHRefreshHeaderView.h; sourceTree = "<group>"; };
+		0813C39E1B6E970B0055C273 /* FHRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHRefreshHeaderView.m; sourceTree = "<group>"; };
+		0813C39F1B6E970B0055C273 /* FHRefreshViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHRefreshViewProtocol.h; sourceTree = "<group>"; };
+		0813C3A01B6E970B0055C273 /* UIScrollView+FHRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+FHRefresh.h"; sourceTree = "<group>"; };
+		0813C3A11B6E970B0055C273 /* UIScrollView+FHRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+FHRefresh.m"; sourceTree = "<group>"; };
 		08C647731B5A16A30080A6E1 /* FHRefreshControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FHRefreshControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08C647771B5A16A30080A6E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08C647781B5A16A30080A6E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -60,6 +76,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0813C3951B6E970B0055C273 /* FHRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				0813C3961B6E970B0055C273 /* FHRefreshControl.h */,
+				0813C3971B6E970B0055C273 /* FHRefreshControl.m */,
+				0813C3981B6E970B0055C273 /* FHRefreshView */,
+				0813C3A01B6E970B0055C273 /* UIScrollView+FHRefresh.h */,
+				0813C3A11B6E970B0055C273 /* UIScrollView+FHRefresh.m */,
+			);
+			path = FHRefresh;
+			sourceTree = "<group>";
+		};
+		0813C3981B6E970B0055C273 /* FHRefreshView */ = {
+			isa = PBXGroup;
+			children = (
+				0813C3991B6E970B0055C273 /* FHRefreshBaseView.h */,
+				0813C39A1B6E970B0055C273 /* FHRefreshBaseView.m */,
+				0813C39B1B6E970B0055C273 /* FHRefreshFooterView.h */,
+				0813C39C1B6E970B0055C273 /* FHRefreshFooterView.m */,
+				0813C39D1B6E970B0055C273 /* FHRefreshHeaderView.h */,
+				0813C39E1B6E970B0055C273 /* FHRefreshHeaderView.m */,
+				0813C39F1B6E970B0055C273 /* FHRefreshViewProtocol.h */,
+			);
+			path = FHRefreshView;
+			sourceTree = "<group>";
+		};
 		08C6476A1B5A16A30080A6E1 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +123,7 @@
 		08C647751B5A16A30080A6E1 /* FHRefreshControl */ = {
 			isa = PBXGroup;
 			children = (
+				0813C3951B6E970B0055C273 /* FHRefresh */,
 				08C6477A1B5A16A30080A6E1 /* AppDelegate.h */,
 				08C6477B1B5A16A30080A6E1 /* AppDelegate.m */,
 				08C6477D1B5A16A30080A6E1 /* ViewController.h */,
@@ -219,9 +262,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0813C3A51B6E970B0055C273 /* FHRefreshHeaderView.m in Sources */,
+				0813C3A31B6E970B0055C273 /* FHRefreshBaseView.m in Sources */,
+				0813C3A41B6E970B0055C273 /* FHRefreshFooterView.m in Sources */,
+				0813C3A61B6E970B0055C273 /* UIScrollView+FHRefresh.m in Sources */,
 				08C6477F1B5A16A30080A6E1 /* ViewController.m in Sources */,
 				08C6477C1B5A16A30080A6E1 /* AppDelegate.m in Sources */,
 				08C647791B5A16A30080A6E1 /* main.m in Sources */,
+				0813C3A21B6E970B0055C273 /* FHRefreshControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +466,7 @@
 				08C647981B5A16A30080A6E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		08C647991B5A16A30080A6E1 /* Build configuration list for PBXNativeTarget "FHRefreshControlTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +475,7 @@
 				08C6479B1B5A16A30080A6E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
