@@ -20,7 +20,8 @@
 
 @implementation FHRefreshControl
 
-+(instancetype)refreshControlObserverWithScrollView:(UIScrollView *)scrollview{
++(instancetype)refreshControlObserverWithScrollView:(UIScrollView *)scrollview
+{
     FHRefreshControl *object = [self new];
     object.scrollView = scrollview;
     [object addObserverWithScrollView];
@@ -29,7 +30,8 @@
     return object;
 }
 
--(void)setUpPara{
+-(void)setUpPara
+{
     self.isCanRefreshing = YES;
     self.isCanLoadingMore = YES;
 }
@@ -37,7 +39,8 @@
 /**
  初始化刷新的头部、尾部控件
  */
--(void)initUI{
+-(void)initUI
+{
     _headerView = [FHRefreshHeaderView createRefreshViewWithFrame:CGRectMake(0, -FHRefreshHeaderViewHeight, [UIScreen mainScreen].bounds.size.width, FHRefreshHeaderViewHeight)];
     [_scrollView addSubview:_headerView];
     _footerView = [FHRefreshFooterView createRefreshViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, FHRefreshFooterViewHeight)];
@@ -58,24 +61,30 @@
     _footerView.frame = frame;
 }
 
--(void)addHeaderWithCallBack:(void(^)())callBack{
+-(void)addHeaderWithCallBack:(void(^)())callBack
+{
     _headerView.beginRefreshBlock = callBack;
 }
 
 
--(void)addFooterWithCallBack:(void(^)())callBack{
+-(void)addFooterWithCallBack:(void(^)())callBack
+{
     _footerView.beginLoadingMoreBlock = callBack;
 }
 
 
 #pragma mark －下拉刷新
 -(void)beginRefreshing{
-    if (_state==FHRefreshStateNormal) {
+    if (_state==FHRefreshStateNormal)
+    {
         _state = FHRefreshStateRefeshing;
-        if (self.delegate) {
-            [self.delegate refreshControlStartRefreshing:self];
+        if (self.delegate &&
+            [self.delegate respondsToSelector:@selector(refreshControlStartRefreshing:scrollView:)])
+        {
+            [self.delegate refreshControlStartRefreshing:self scrollView:self.scrollView];
         }
-        if (_headerView.beginRefreshBlock) {
+        if (_headerView.beginRefreshBlock)
+        {
             _headerView.beginRefreshBlock();
         }
         [self refreshingAnimation];
@@ -90,9 +99,12 @@
     }];
 }
 
--(void)endRefresh{
-    if (self.delegate) {
-        [self.delegate refreshControlEndRefresh:self];
+-(void)endRefresh
+{
+    if (self.delegate &&
+        [self.delegate respondsToSelector:@selector(refreshControlEndRefresh:scrollView:)])
+    {
+        [self.delegate refreshControlEndRefresh:self scrollView:self.scrollView];
     }
     [_headerView endRefreshAnimation];
     [self endRefreshAnimation];
@@ -112,25 +124,33 @@
 }
 
 #pragma mark －加载更多
--(void)beginLoading{
-    if (_loadState==FHLoadingMorePrepare) {
+-(void)beginLoading
+{
+    if (_loadState==FHLoadingMorePrepare)
+    {
         _loadState = FHLoadingMoreRefreshing;
         [_footerView startRefreshAnimation];
-        if (self.delegate) {
-            [self.delegate refreshControlStartLoading:self];
+        if (self.delegate &&
+            [self.delegate respondsToSelector:@selector(refreshControlStartLoading:scrollView:)])
+        {
+            [self.delegate refreshControlStartLoading:self scrollView:self.scrollView];
         }
-        if (_footerView.beginLoadingMoreBlock) {
+        if (_footerView.beginLoadingMoreBlock)
+        {
             _footerView.beginLoadingMoreBlock();
         }
     }
 }
 
 
--(void)endLoad{
+-(void)endLoad
+{
     [_footerView endRefreshAnimation];
     _loadState = FHLoadingMoreNormal;
-    if(self.delegate){
-        [self.delegate refreshControlEndLoad:self];
+    if(self.delegate &&
+       [self.delegate respondsToSelector:@selector(refreshControlEndLoad:scrollView:)])
+    {
+        [self.delegate refreshControlEndLoad:self scrollView:self.scrollView];
     }
 //    NSLog(@"end");
 }
@@ -225,23 +245,32 @@
  处理上拉
  @param offsetY 滚动偏移量
  */
--(void)handleWithScrollViewContentInsetTop:(CGFloat )offsetY{
-    if (_state==FHRefreshStateNormal&&_loadState!=FHLoadingMoreRefreshing) {
+-(void)handleWithScrollViewContentInsetTop:(CGFloat )offsetY
+{
+    if (_state==FHRefreshStateNormal&&_loadState!=FHLoadingMoreRefreshing)
+    {
         //当前位置
         CGFloat offsetY = _scrollView.contentOffset.y;
-        if (_scrollView.isDragging==YES) {
+        if (_scrollView.isDragging==YES)
+        {
             //拖拽中
-            if (self.delegate) {
+            if (self.delegate &&
+                [self.delegate respondsToSelector:@selector(refreshControlMoving:offset:percent:scrollView:)])
+            {
                 CGFloat  percent = -offsetY/FHRefreshHeaderViewHeight;
                 [self.delegate refreshControlMoving:self
                                              offset:offsetY
-                                            percent:percent];
+                                            percent:percent
+                                          scrollView:self.scrollView];
                 [_headerView animationWithPercent:percent];
             }
-        }else if(_scrollView.isDragging==NO){
+        }
+        else if(_scrollView.isDragging==NO)
+        {
             //结束拖拽,到达更新的阀值才执行更新
             //            NSLog(@"y=%lf,height=%lf",-_offsetY,_height);
-            if (-offsetY >= FHRefreshHeaderViewHeight*0.8) {
+            if (-offsetY >= FHRefreshHeaderViewHeight*0.8)
+            {
                 [self beginRefreshing];
             }
         }

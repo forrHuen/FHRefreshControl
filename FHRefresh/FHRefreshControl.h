@@ -120,12 +120,14 @@ typedef enum : NSUInteger {
  开时刷新
  @param refreshControl
  */
--(void)refreshControlStartRefreshing:(FHRefreshControl *)refreshControl;
+-(void)refreshControlStartRefreshing:(FHRefreshControl *)refreshControl
+                           scrollView:(UIScrollView *)scrollView;
 /**
  结束刷新
  @param refreshControl
  */
--(void)refreshControlEndRefresh:(FHRefreshControl *)refreshControl;
+-(void)refreshControlEndRefresh:(FHRefreshControl *)refreshControl
+                      scrollView:(UIScrollView *)scrollView;
 /**
  移动过程
  @param refreshControl
@@ -133,17 +135,20 @@ typedef enum : NSUInteger {
  @param percent        百分比
  */
 -(void)refreshControlMoving:(FHRefreshControl *)refreshControl
-       offset:(CGFloat )offset
-      percent:(CGFloat )percent;
+                     offset:(CGFloat )offset
+                    percent:(CGFloat )percent
+                  scrollView:(UIScrollView *)scrollView;
 /**
  开时加载更多
  @param refreshControl
  */
--(void)refreshControlStartLoading:(FHRefreshControl *)refreshControl;
+-(void)refreshControlStartLoading:(FHRefreshControl *)refreshControl
+                        scrollView:(UIScrollView *)scrollView;
 /**
  结束加载更多
  @param refreshControl
  */
--(void)refreshControlEndLoad:(FHRefreshControl *)refreshControl;
+-(void)refreshControlEndLoad:(FHRefreshControl *)refreshControl
+                   scrollView:(UIScrollView *)scrollView;
 
 @end

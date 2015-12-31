@@ -57,7 +57,7 @@
 }
 
 #pragma mark  -refreshControlDelegate-
--(void)refreshControlStartRefreshing:(FHRefreshControl *)refreshControl{
+-(void)refreshControlStartRefreshing:(FHRefreshControl *)refreshControl scrollView:(UIScrollView *)scrollView{
     NSLog(@"startRefresh");
      __weak ViewController *weakSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -70,15 +70,15 @@
     });
 }
 
--(void)refreshControlMoving:(FHRefreshControl *)refreshControl offset:(CGFloat)offset percent:(CGFloat)percent{
+-(void)refreshControlMoving:(FHRefreshControl *)refreshControl offset:(CGFloat)offset percent:(CGFloat)percent scrollView:(UIScrollView *)scrollView{
 //    NSLog(@"move");
 }
 
--(void)refreshControlEndRefresh:(FHRefreshControl *)refreshControl{
+-(void)refreshControlEndRefresh:(FHRefreshControl *)refreshControl scrollView:(UIScrollView *)scrollView{
     NSLog(@"endRefresh");
 }
 
--(void)refreshControlStartLoading:(FHRefreshControl *)refreshControl{
+-(void)refreshControlStartLoading:(FHRefreshControl *)refreshControl scrollView:(UIScrollView *)scrollView{
     NSLog(@"startloaded");
     __weak ViewController *weakSelf = self;
     if (weakSelf.dataSource.count>30) {
