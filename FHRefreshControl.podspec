@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "FHRefreshControl"
-  s.version          = "1.0.0"
+  s.version          = "1.0.3"
   s.summary          = "A refresh view used on iOS."
   s.description      = <<-DESC
                        It is a refresh view used on iOS, which implement by Objective-C.
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   # s.screenshots    = ""
   s.license          = 'MIT'
   s.author           = { "禤志锋" => "1216315508@qq.com" }
-  s.source           = { :git => "https://github.com/forrHuen/FHRefreshControl.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/forrHuen/FHRefreshControl.git", :tag => s.version }
   # s.social_media_url = ''
 
   s.platform     = :ios, '7.0'
