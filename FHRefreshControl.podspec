@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "FHRefreshControl"
-  s.version          = "1.0.4"
+  s.version          = "1.0.5"
   s.summary          = "A refresh view used on iOS."
   s.description      = <<-DESC
                        It is a refresh view used on iOS, which implement by Objective-C.
